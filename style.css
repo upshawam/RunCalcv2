@@ -95,6 +95,61 @@ span { color: #00ffff; font-weight: bold; }
 
 .footer { text-align: center; color: #666; font-size: 0.85rem; }
 
+/* Mobile Responsiveness */
+@media (max-width: 480px) {
+  body {
+    padding: 10px;
+  }
+  .container {
+    padding: 20px;
+    max-width: 100%;
+  }
+  h1 {
+    font-size: 1.5rem;
+    margin-bottom: 20px;
+  }
+  .unit-toggle {
+    margin-bottom: 20px;
+  }
+  .unit-btn {
+    padding: 10px;
+    font-size: 0.9rem;
+  }
+  input {
+    width: 70px;
+    padding: 12px 6px;
+    font-size: 1.5rem;
+  }
+  .distance-inputs input:first-child,
+  .distance-inputs input:last-of-type {
+    width: 80px;
+  }
+  .time-inputs,
+  .pace-inputs {
+    font-size: 1.5rem;
+  }
+  .calc-btn,
+  .chart-btn,
+  .clear-btn {
+    padding: 14px;
+    font-size: 1rem;
+  }
+  .overlay {
+    padding: 10px;
+  }
+  .chart-modal {
+    padding: 15px;
+    max-width: 100%;
+  }
+  #pace-table {
+    font-size: 0.8rem;
+  }
+  #pace-table th,
+  #pace-table td {
+    padding: 8px;
+  }
+}
+
 /* Modal */
 .overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.95);
   z-index: 1000; overflow-y: auto; display: flex; align-items: flex-start; justify-content: center; padding: 20px; }
