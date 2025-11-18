@@ -25,12 +25,12 @@
 <body>
   <!-- rest of your HTML exactly the same as before -->
   <div class="container">
-    <h1>Running Pace Calculator</h1>
+    <!-- <h1>Running Pace Calculator</h1> -->
 
-    <div class="unit-toggle">
+    <!-- <div class="unit-toggle">
       <button id="mi-btn" class="unit-btn active">min/mi</button>
       <button id="km-btn" class="unit-btn">min/km</button>
-    </div>
+    </div> -->
 
     <!-- TIME -->
     <div class="input-group">
@@ -69,7 +69,13 @@
 
     <!-- PACE -->
     <div class="input-group">
-      <label>Pace (<span id="pace-unit">min/mi</span>)</label>
+      <div class="pace-header">
+        <label>Pace</label>
+        <div class="unit-toggle">
+          <button id="mi-btn" class="unit-btn active">min/mi</button>
+          <button id="km-btn" class="unit-btn">min/km</button>
+        </div>
+      </div>
       <div class="pace-inputs">
         <input type="number" id="pace-min" placeholder="00" min="0">
         <span>:</span>

@@ -54,15 +54,29 @@ h1 {
   box-shadow: 0 4px 15px rgba(0, 255, 255, 0.4);
 }
 
-.input-group { margin-bottom: 28px; }
+.input-group { margin-bottom: 20px; }
 label { display: block; margin-bottom: 12px; font-weight: 600; color: #00ffff; font-size: 1.1rem; }
+
+.pace-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 12px;
+}
+.pace-header label {
+  margin-bottom: 0;
+}
+.pace-header .unit-toggle {
+  margin-bottom: 0;
+  flex-shrink: 0;
+}
 
 .distance-row { display: flex; align-items: center; gap: 10px; margin-bottom: 12px; }
 .distance-inputs, .time-inputs, .pace-inputs { display: flex; align-items: center; gap: 10px; font-size: 2rem; font-weight: bold; }
 
 input {
   width: 88px; padding: 16px 8px; font-size: 1.8rem; text-align: center;
-  background: #222; border: 2px solid #333; border-radius: 14px; color: white;
+  background: #333; border: 2px solid #333; border-radius: 14px; color: white;
 }
 input:focus { outline: none; border-color: #00ffff; box-shadow: 0 0 20px rgba(0,255,255,0.3); background: #1a1a1a; }
 
@@ -70,7 +84,7 @@ input:focus { outline: none; border-color: #00ffff; box-shadow: 0 0 20px rgba(0,
 .distance-inputs input:last-of-type { width: 100px; }
 
 #race-select {
-  width: 50px; padding: 16px 8px; font-size: 2rem; background: #222;
+  width: 50px; padding: 16px 8px; font-size: 1.8rem; background: #222;
   border: 2px solid #333; border-radius: 14px; color: #00ffff; font-weight: bold; cursor: pointer;
 }
 #race-select:focus { border-color: #00ffff; }
@@ -104,16 +118,16 @@ span { color: #00ffff; font-weight: bold; }
     padding: 20px;
     max-width: 100%;
   }
-  h1 {
-    font-size: 1.5rem;
-    margin-bottom: 20px;
-  }
+  /* h1 removed */
   .unit-toggle {
     margin-bottom: 20px;
   }
   .unit-btn {
     padding: 10px;
     font-size: 0.9rem;
+  }
+  .input-group {
+    margin-bottom: 16px;
   }
   input {
     width: 70px;
@@ -133,6 +147,12 @@ span { color: #00ffff; font-weight: bold; }
   .clear-btn {
     padding: 14px;
     font-size: 1rem;
+  }
+  .pace-header .unit-toggle {
+    transform: scale(0.9);
+  }
+  #race-select {
+    font-size: 1.5rem;
   }
   .overlay {
     padding: 10px;

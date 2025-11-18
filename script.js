@@ -7,7 +7,7 @@ const inputs = {
 const raceSelect = document.getElementById('race-select');
 const miBtn = document.getElementById('mi-btn'), kmBtn = document.getElementById('km-btn');
 const unitLabel = document.getElementById('unit-label'), unitSmall = document.getElementById('unit-small');
-const paceUnit = document.getElementById('pace-unit'), paceUnitSmall = document.getElementById('pace-unit-small');
+const paceUnitSmall = document.getElementById('pace-unit-small');
 
 let isMiles = true;
 
@@ -70,7 +70,7 @@ function setUnit(miles) {
   kmBtn.classList.toggle('active', !miles);
   unitLabel.textContent = miles ? 'miles' : 'km';
   unitSmall.textContent = paceUnitSmall.textContent = miles ? 'mi' : 'km';
-  paceUnit.textContent = `min/${miles ? 'mi' : 'km'}`;
+  // paceUnit.textContent = `min/${miles ? 'mi' : 'km'}`; // removed since span removed
 
   const dist = getDistance();
   if (dist > 0) {
