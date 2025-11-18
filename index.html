@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Running Pace Calculator</title>
+  <link rel="stylesheet" href="style.css" />
+
+  <!-- PWA - icons now in /icons folder -->
+  <link rel="manifest" href="manifest.json" />
+  <link rel="icon" href="icons/icon-192.png" />
+  <link rel="apple-touch-icon" href="icons/icon-192.png" />
+  <meta name="theme-color" content="#00ffff" />
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
+  <script>
+    if ('serviceWorker' in navigator) {
+      window.addEventListener('load', () => {
+        navigator.serviceWorker.register('sw.js');
+      });
+    }
+  </script>
+</head>
+<body>
+  <!-- rest of your HTML exactly the same as before -->
+  <div class="container">
+    <h1>Running Pace Calculator</h1>
+
+    <div class="unit-toggle">
+      <button id="mi-btn" class="unit-btn active">min/mi</button>
+      <button id="km-btn" class="unit-btn">min/km</button>
+    </div>
+
+    <!-- TIME -->
+    <div class="input-group">
+      <label>Total Time</label>
+      <div class="time-inputs">
+        <input type="number" id="hours" placeholder="0" min="0">
+        <span>:</span>
+        <input type="number" id="minutes" placeholder="00" min="0" max="59">
+        <span>:</span>
+        <input type="number" id="seconds" placeholder="00" min="0" max="59">
+      </div>
+      <button class="calc-btn" data-target="time">Calculate Time</button>
+    </div>
+
+    <!-- DISTANCE -->
+    <div class="input-group">
+      <label>Distance <span id="unit-label">miles</span></label>
+      <div class="distance-row">
+        <div class="distance-inputs">
+          <input type="number" id="dist-whole" placeholder="0" min="0" step="any">
+          <span>.</span>
+          <input type="number" id="dist-decimal" placeholder="0000" min="0" step="any">
+        </div>
+        <select id="race-select">
+          <option value="">≡</option>
+          <option value="3.10686">5K</option>
+          <option value="6.21371">10K</option>
+          <option value="13.109435">Half</option>
+          <option value="26.21887">Marathon</option>
+          <option value="31.0686">50K</option>
+        </select>
+        <span class="unit-small" id="unit-small">mi</span>
+      </div>
+      <button class="calc-btn" data-target="distance">Calculate Distance</button>
+    </div>
+
+    <!-- PACE -->
+    <div class="input-group">
+      <label>Pace (<span id="pace-unit">min/mi</span>)</label>
+      <div class="pace-inputs">
+        <input type="number" id="pace-min" placeholder="00" min="0">
+        <span>:</span>
+        <input type="number" id="pace-sec" placeholder="00" min="0" max="59">
+        <span class="unit-small">per <span id="pace-unit-small">mi</span></span>
+      </div>
+      <button class="calc-btn" data-target="pace">Calculate Pace</button>
+    </div>
+
+    <button id="clear-all" class="clear-btn">Clear All</button>
+    <button id="show-chart" class="chart-btn">Pace Chart</button>
+
+    <div class="footer"><small>Enter any two → press Calculate</small></div>
+  </div>
+
+  <!-- PACE CHART MODAL -->
+  <div id="chart-overlay" class="overlay hidden">
+    <div class="chart-modal">
+      <button id="close-chart" class="close-btn">✕</button>
+      <h2>Pace Chart (8.0 – 21.0 kph)</h2>
+      <div class="chart-wrapper">
+        <table id="pace-table">
+          <thead>
+            <tr>
+              <th>min/km</th>
+              <th>min/mi</th>
+              <th>5K</th>
+              <th>10K</th>
+              <th>Half</th>
+              <th>Marathon</th>
+            </tr>
+          </thead>
+          <tbody></tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
